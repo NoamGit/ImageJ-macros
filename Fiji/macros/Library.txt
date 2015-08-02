@@ -1,0 +1,65 @@
+
+//************************************************** findPeaks function *****************************************************
+
+function findPeaks(threshold, ArrayName){ 
+	peaks = newArray(0);
+	for(i=0;i<ArrayName.length;i++){
+		if(ArrayName[i] > threshold){
+			peaks=Array.concat(peaks,i);
+		}
+	}
+return peaks;
+
+//************************************************** find percentile function *****************************************************
+
+ 
+function findPercentile(nBins, ArrayName, precentile){ 
+	histogramBinArrayMin=newArray(nBins); 
+	histogramBinArrayMax=newArray(nBins); 
+	histogramBinArray=newArray(nBins); 
+	histogramPlotXArray=newArray(nBins); 
+	histogramPlotFreqArray=newArray(nBins); 
+	Array.getStatistics(ArrayName, ArrayMin, ArrayMax, ArrayMean, ArraystdDev); 
+	binSize=(ArrayMax-ArrayMin)/(nBins+1); 
+	
+	//set the bin values 
+	for(i=0;i<nBins;i++){ 
+		histogramBinArrayMin[i]=ArrayMin+(i*binSize); 
+		histogramBinArrayMax[i]=ArrayMin+((i+1)*binSize); 
+	} 
+	
+	//detrmine the number plot profile values in each bin 
+	for(i=0;i<lengthOf(ArrayName);i++){ 
+		chkE=ArrayName[i]; 
+		for(j=0;j<nBins;j++){ 
+			if(chkE>=histogramBinArrayMin[j] && chkE<histogramBinArrayMax[j]){ 
+				chkBinCount=histogramBinArray[j]; 
+				histogramBinArray[j]=chkBinCount+1; 
+		} 
+			if(chkE==ArrayMax){ 
+				chkBinCount=histogramBinArray[nBins-1]; 
+			} 
+		} 
+	} 
+	
+	//generates the values for plotting 
+	for(i=0;i<nBins;i++){ 
+		histogramPlotXArray[i]=(histogramBinArrayMin[i]+histogramBinArrayMax[i])/2;//for x axis center in the middle of the bin 
+		histogramPlotFreqArray[i]=histogramBinArray[i]/(lengthOf(ArrayName)); //for y axis is number in each bin divided by the total number of plot values 
+	} 
+	
+	// create cumulative distribution function
+	cum = newArray(histogramPlotFreqArray.length); 
+	cum[0] = histogramPlotFreqArray[0]; 
+	for (i = 1; i < histogramPlotFreqArray.length ; i++){ 
+	        cum[i] = histogramPlotFreqArray[i] + cum[i-1]; 
+	}
+	       
+	// find percentile 
+	for (i = 1; i<histogramPlotFreqArray.length; i++) {
+		if (cum[i-1] <= precentile && precentile <= cum[i]) 
+			// output tissue threshold: 
+			return histogramPlotXArray[i]; 
+		} 
+
+}//end of findpercentile
