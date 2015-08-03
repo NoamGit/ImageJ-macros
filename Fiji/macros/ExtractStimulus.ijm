@@ -9,8 +9,8 @@ macro 'ExtractStimulus'{
 	run("Plot Z-axis Profile");
 	Plot.getValues(x, meanSignal);
 	Dialog.create("ExtractStimulus");
-	Dialog.addMessage("Set trashold for stimulus");
-	Dialog.addNumber("treshold", 500);	
+	Dialog.addMessage("Set threshold for stimulus");
+	Dialog.addNumber("threshold", 500);	
 	Dialog.show();
     thresh = Dialog.getNumber();
 	run("Close");
