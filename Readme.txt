@@ -1,25 +1,14 @@
-<<<<<<< HEAD
 This Repository contains the lastest Fiji version with the tools developed for Calcium Image Analysis in NIEL's systems
 
 Under the green neuron tab you can find the following functions:
 
-DeltaF - 
+Remove Dark current - Selection based dark current removal
 
-QuickDeltaF - 
+QuickDeltaF - Selection based DF
 
-Stimulus Artifact removal - 
+Stimulus Artifact removal - Threshold based flashing artifact removal
 
-Extract Stimulus - 
-=======
-This Repository contains the lastest Fiji version with the tools developed for Calcium Image Analysis in NIEL's systems
+Extract Stimulus - Threshold based flashing stimulus extraction
 
-Under the green neuron tab you can find the following functions:
+Registration - Rigid translation plugin
 
-DeltaF - 
-
-QuickDeltaF - 
-
-Stimulus Artifact removal - 
-
-Extract Stimulus - 
->>>>>>> fbe217b337b62e0c704d227e6cbc542c35e75ac4
