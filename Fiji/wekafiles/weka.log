@@ -1,0 +1,14 @@
+2015-08-16 11:36:31 weka.gui.GenericObjectEditor registerEditors
+INFO: ---Registering Weka Editors---
+2015-08-16 11:36:32 weka.experiment.DatabaseUtils initialize
+WARNING: Trying to add database driver (JDBC): RmiJdbc.RJDriver - Warning, not in CLASSPATH?
+2015-08-16 11:36:32 weka.experiment.DatabaseUtils initialize
+WARNING: Trying to add database driver (JDBC): jdbc.idbDriver - Warning, not in CLASSPATH?
+2015-08-16 11:36:32 weka.experiment.DatabaseUtils initialize
+WARNING: Trying to add database driver (JDBC): org.gjt.mm.mysql.Driver - Warning, not in CLASSPATH?
+2015-08-16 11:36:32 weka.experiment.DatabaseUtils initialize
+WARNING: Trying to add database driver (JDBC): com.mckoi.JDBCDriver - Warning, not in CLASSPATH?
+2015-08-16 11:36:32 weka.experiment.DatabaseUtils initialize
+WARNING: Trying to add database driver (JDBC): org.hsqldb.jdbcDriver - Warning, not in CLASSPATH?
+[KnowledgeFlow] Loading properties and plugins...
+[KnowledgeFlow] Initializing KF...
