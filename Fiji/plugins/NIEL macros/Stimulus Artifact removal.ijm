@@ -89,7 +89,7 @@ macro 'Flashing Artifact removal'{
 		  	selectImage(image_out);
 			tol = stimThres;
 		  	peaks  = findPeaks( stimThres, meanSignal);
-		  	//print(peaks);
+		  	Array.print(peaks);
 		  	
 		/******* AVERAGE PEAK'S VAL ACCORDING LOCATION********/ 
 		//selectImage(image_out);
@@ -98,24 +98,20 @@ macro 'Flashing Artifact removal'{
 	  		stimWidth = round(stimLength/ar_t);
 	    }
 		for (k=0; k<lengthOf(peaks); k++){
-			//i=0; 
+			// for each peak slice replace with slice before
 			sliceID_back = peaks[k]-2;
-			sliceID_front = peaks[k]+stimWidth +2;
 			run("Set Slice...", "slice="+sliceID_back);
-			image_back = getImageID();
-			run("Set Slice...", "slice="+sliceID_front);
-			image_front = getImageID();  
-			imageCalculator("average create",image_front ,image_back);
-			image_mean = getImageID();
-			selectImage(image_out); 	
-			//run("Set Slice...", "slice="+70);	   			
+			backimage = getImageID();
+			imageCalculator("average create", backimage, backimage);
+			replacement = getImageID();
+			selectImage(image_out); 
 			for (j=0;j<stimWidth;j++){
 				sliceID = peaks[k]+j;
 				run("Set Slice...", "slice="+sliceID);
 				peak = getImageID(); 
-				imageCalculator("copy",peak ,image_mean);
+				imageCalculator("copy",peak ,replacement);
 			}
-			selectImage(image_mean);
+			selectImage(replacement);
 			run("Close");
 		}
 		
