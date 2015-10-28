@@ -105,7 +105,7 @@ macro 'Flashing Artifact removal'{
 			imageCalculator("average create", backimage, backimage);
 			replacement = getImageID();
 			selectImage(image_out); 
-			for (j=0;j<stimWidth;j++){
+			for (j=0;j<2;j++){
 				sliceID = peaks[k]+j;
 				run("Set Slice...", "slice="+sliceID);
 				peak = getImageID(); 
