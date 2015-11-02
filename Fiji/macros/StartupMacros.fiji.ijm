@@ -297,7 +297,8 @@ newArray("Activity Analysis", "Quick DF (no dark current)","DeltaSlice", "-", "S
 		 }
 		
 		 if (cmd=="Extract Stimulus") {
-			runMacro("ExtractStimulus.ijm");
+			//runMacro("ExtractStimulus.ijm");
+			run("Extract Stimulus (niel)");
 			exit;
 		 }
 		
