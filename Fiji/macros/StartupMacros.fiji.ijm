@@ -322,7 +322,7 @@ newArray("Activity Analysis","Activity Analysis with AVI", "Quick DF (no dark cu
 		}
 		
 		 if (cmd=="Kalman Filter") {
-			 run("Kalman Stack Filter");
+			 run("Kalman filter (P. Mauer)");
 			 exit;
 		 }
 		
