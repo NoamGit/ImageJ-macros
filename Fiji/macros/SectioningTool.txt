@@ -1,0 +1,2 @@
+run("Stack to RGB");
+run("RGB to Luminance");
